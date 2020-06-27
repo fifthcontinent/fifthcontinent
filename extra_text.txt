@@ -1,0 +1,3 @@
+Heavily inspired by LOW←TECH MAGAZINE https://solar.lowtechmagazine.com/low-tech-solutions.html, (nicked their idea) our website also reflects our location, as it is powered by the sun shining in the open skies over the marsh. We’ve built the pages to be as lightweight as possible, to keep our energy usage down. A battery indicator at top right shows our current battery level, so lease proceed with care if we’re running low. To make our website feel even more like home, we’ve attached a camera to our server that ponts straight up into the sky. The background of this page (and the others you can find here) match the colour of the sky above our studio.
+
+Very often it is a vivid blue
