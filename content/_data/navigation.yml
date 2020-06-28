@@ -1,8 +1,8 @@
-- name: Who we are
+- name: About
   link: /
-- name: What we use
-  link: /what-technology-we-use.html
-- name: Where we are
-  link: /where-are-fifth-continent-limited.html
+- name: Articles
+  link: /articles.html
+# - name: Where we are
+#   link: /where-are-fifth-continent-limited.html
 # - name: About this site
 #   link: /about-this.html

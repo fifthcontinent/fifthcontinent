@@ -37,42 +37,25 @@
 </figure> -->
 <header>
     <h1>Fifth Continent</h1>
-
-    <a href='#' class="menu" id="burger">
-        <svg viewBox="0 0 100 80" width="25" height="25">
-            <rect width="100" height="10"></rect>
-            <rect y="30" width="100" height="10"></rect>
-            <rect y="60" width="100" height="10"></rect>
-        </svg></a>
-</header>
     <nav>
-    <ul>
-        
-        <li>
-            <a href="/" class="current" >
-                Who we are
-            </a>
-        </li>
-        
-        <li>
-            <a href="/what-technology-we-use.html" >
-                What we use
-            </a>
-        </li>
-        
-        <li>
-            <a href="/where-are-fifth-continent-limited.html" >
-                Where we are
-            </a>
-        </li>
-        
-    </ul>
-    <a href='#' class="menu" id="cross">
-        <svg viewBox="0 0 100 80" width="25" height="25">
-            <line x1="0" y1="0" x2="100" y2="80" stroke-width=10 stroke="black" />
-            <line x1="0" y1="80" x2="100" y2="0" stroke-width=10 stroke="black" />
-        </svg></a>
-</nav>
+        <ul>
+            
+            <li>
+                <a href="/" class="current" >
+                    About
+                </a>
+            </li>
+            
+            <li>
+                <a href="/what-technology-we-use.html" >
+                    Blog
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
+    
     <article>
         <h2 id="about-us">About us</h2>
 
@@ -82,30 +65,28 @@
 
 <p>We are small, but work with some of the largest companies. We are well practised at working remotely, so we can work with you wherever you are.</p>
 
+<h2 id="what-we-use-to-build-our-projects">What we use to build our projects</h2>
+
+<p>We use <strong>python</strong> in pretty much all of our projects. We’re very good at python.</p>
+
+<p>We often use a <strong>serverless</strong> approach, and use the serverless framework for infrastructure and deployment, and Terraform for other infrastructure.</p>
+
+<p>Everything we code will have excellent test coverage, and will use continuous integration. <strong>Test driven development</strong> is our thing.</p>
+
+<p>Deploying your project will be a breeze, git push and it’s done. On the front end we will use whatever framework is appropriate - this site uses Jekyll, which is just the ticket here, but more usually it would be react or something similar.</p>
+
+<p>We also know a lot about the <strong>data science and data engineering</strong> tool kit, and are very experienced at building a pipeline to turn your machine learning Jupiter notebooks into something with a web UI that people can actually use.</p>
+
+<p>We do agile because it helps, but we don’t get obsessed with it.</p>
+
+<h2 id="where-we-are">Where we are</h2>
+
+<p>We are based on Romney Marsh. It’s sometimes called the fifth continent, a name from a time when geographers divided the world into four continents. Its a a place that feels apart from the world, a world of its own in fact.</p>
+
 <p>Get in touch at <a href="hello@fifthcontinent.io">hello@fifthcontinent.io</a></p>
 
 
     </article>
-    <script type="text/javascript">
-        function toggleMenu() {
-            var menu = document.getElementsByTagName("nav")[0];
-            console.log(menu.style.display);
-            console.log(menu);
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
-            }
-        }
-        var burger = document.getElementById('burger');
-        burger.onclick = function () {
-            toggleMenu();
-        };
-        var cross = document.getElementById('cross');
-        cross.onclick = function () {
-            toggleMenu();
-        };
-    </script>
 </body>
 
 </html>

@@ -1,7 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-27T07:35:24+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">How To Run A Website On A Tiny Server</title><link href="http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server.html" rel="alternate" type="text/html" title="How To Run A Website On A Tiny Server" /><published>2020-06-22T00:00:00+01:00</published><updated>2020-06-22T00:00:00+01:00</updated><id>http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server</id><content type="html" xml:base="http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server.html">&lt;h1 id=&quot;how-to-build-a-website-and-run-it-on-a-tiny-server&quot;&gt;How to build a website and run it on a tiny server&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-28T14:23:38+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">How To Run A Website On A Tiny Server</title><link href="http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server.html" rel="alternate" type="text/html" title="How To Run A Website On A Tiny Server" /><published>2020-06-22T00:00:00+01:00</published><updated>2020-06-22T00:00:00+01:00</updated><id>http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server</id><content type="html" xml:base="http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server.html">&lt;p&gt;This website (fifthcontinent.io) is running on a tiny web server, a raspberyPi Nano.&lt;/p&gt;
 
-&lt;h2 id=&quot;setting-up-raspberry-pi&quot;&gt;Setting up raspberry pi&lt;/h2&gt;
+&lt;p&gt;### Set up your raspberry PI&lt;/p&gt;
 
+&lt;h2 id=&quot;ssh-in&quot;&gt;SSH in&lt;/h2&gt;
+
+&lt;p&gt;Find your port&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nmap -sP 10.0.1.0/24
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You’ll see something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Nmap scan report for 10.0.1.x
+Host is up (0.32s latency).
+MAC Address: AB:CD:EF:GH:12:34 (Raspberry Pi Foundation
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;get-on-wifi-if-you-have-to&quot;&gt;Get on wifi (if you have to)&lt;/h3&gt;
+
+&lt;p&gt;You can see available networks with&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wlan0 scan
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;ul&gt;
   &lt;li&gt;Install OS - flashing onto a memory stick&lt;/li&gt;
   &lt;li&gt;Get it on WiFi&lt;/li&gt;
@@ -9,4 +28,4 @@
   &lt;li&gt;Copy private key&lt;/li&gt;
   &lt;li&gt;Configure firewall - ufw&lt;/li&gt;
   &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">How to build a website and run it on a tiny server</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">This website (fifthcontinent.io) is running on a tiny web server, a raspberyPi Nano.</summary></entry></feed>
