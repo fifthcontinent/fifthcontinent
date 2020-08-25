@@ -23,41 +23,40 @@
 </head>
 
 <body>
-    <!-- <figure role="img" aria-labelledby="logo-caption" id="logo">
-    <pre>
+    <div class="wrapper">
+        <!--
     _______ ______  __       ______            __  _                  __ 
    / ____(_) __/ /_/ /_     / ____/___  ____  / /_(_)___  ___  ____  / /_
   / /_  / / /_/ __/ __ \   / /   / __ \/ __ \/ __/ / __ \/ _ \/ __ \/ __/
  / __/ / / __/ /_/ / / /  / /___/ /_/ / / / / /_/ / / / /  __/ / / / /_  
 /_/   /_/_/  \__/_/ /_/   \____/\____/_/ /_/\__/_/_/ /_/\___/_/ /_/\__/  
-    </pre>
-    <figcaption id="logo-caption" hidden="true" aria-hidden="false">
-        <h1>Fifth Continent Limited</h1>
-    </figcaption>
-</figure> -->
+
+-->
 <header>
-    <h1>Fifth Continent</h1>
-    <nav>
-        <ul>
-            
-            <li>
-                <a href="/" >
-                    About
-                </a>
-            </li>
-            
-            <li>
-                <a href="/what-technology-we-use.html" >
-                    Blog
-                </a>
-            </li>
-            
-        </ul>
-    </nav>
+    <h1>5th Continent</h1>
+    <!-- <nav>
+            <ul>
+                
+                <li>
+                    <a href="/" >
+                        About
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/articles.html" >
+                        Articles
+                    </a>
+                </li>
+                
+            </ul>
+        </nav> -->
 </header>
-    
-    <article>
-        <h1 id="a-tiny-web-server">A tiny web server</h1>
+
+<hr />
+        
+        <article>
+            <h1 id="a-tiny-web-server">A tiny web server</h1>
 
 <ul>
   
@@ -75,7 +74,28 @@
 
 <p>To make sure</p>
 
-    </article>
+        </article>
+        <script type="text/javascript">
+            function toggleMenu() {
+                var menu = document.getElementsByTagName("nav")[0];
+                console.log(menu.style.display);
+                console.log(menu);
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
+            }
+            var burger = document.getElementById('burger');
+            burger.onclick = function () {
+                toggleMenu();
+            };
+            var cross = document.getElementById('cross');
+            cross.onclick = function () {
+                toggleMenu();
+            };
+        </script>
+    </div>
 </body>
 
 </html>

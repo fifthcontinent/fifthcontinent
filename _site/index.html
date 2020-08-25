@@ -14,18 +14,19 @@
 <meta name="generator" content="Jekyll v4.1.0" />
 <meta property="og:title" content="Fifth Continent - Web and data science product development and consultancy" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="About us" />
-<meta property="og:description" content="About us" />
+<meta name="description" content="Fifth Continent are a web development agency. We help people turn their ideas into easy to use, thoughtful products, and we find the simplest way to do it." />
+<meta property="og:description" content="Fifth Continent are a web development agency. We help people turn their ideas into easy to use, thoughtful products, and we find the simplest way to do it." />
 <link rel="canonical" href="http://localhost:4000/" />
 <meta property="og:url" content="http://localhost:4000/" />
 <script type="application/ld+json">
-{"headline":"Fifth Continent - Web and data science product development and consultancy","description":"About us","@type":"WebSite","url":"http://localhost:4000/","@context":"https://schema.org"}</script>
+{"headline":"Fifth Continent - Web and data science product development and consultancy","description":"Fifth Continent are a web development agency. We help people turn their ideas into easy to use, thoughtful products, and we find the simplest way to do it.","@type":"WebSite","url":"http://localhost:4000/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
 
 <body>
-    <!--
+    <div class="wrapper">
+        <!--
     _______ ______  __       ______            __  _                  __ 
    / ____(_) __/ /_/ /_     / ____/___  ____  / /_(_)___  ___  ____  / /_
   / /_  / / /_/ __/ __ \   / /   / __ \/ __ \/ __/ / __ \/ _ \/ __ \/ __/
@@ -34,7 +35,7 @@
 
 -->
 <header>
-    <h1>Fifth Continent</h1>
+    <h1>5th Continent</h1>
     <nav>
         <ul>
             
@@ -53,9 +54,11 @@
         </ul>
     </nav>
 </header>
-    
-    <article>
-        <h2 id="about-us">About us</h2>
+
+<hr />
+        
+        <article>
+            <h2 id="about-us">About us</h2>
 
 <p>Fifth Continent are a web development agency. We help people turn their ideas into easy to use, thoughtful products, and we find the simplest way to do it. Our expertise is in the nuts and bolts, the backend processes and infrastructure that power digital products.</p>
 
@@ -73,18 +76,39 @@
 
 <p>Deploying your project will be a breeze, git push and it’s done. On the front end we will use whatever framework is appropriate - this site uses Jekyll, which is just the ticket here, but more usually it would be react or something similar.</p>
 
-<p>We also know a lot about the <strong>data science and data engineering</strong> tool kit, and are very experienced at building a pipeline to turn your machine learning Jupiter notebooks into something with a web UI that people can actually use.</p>
-
-<p>We do agile because it helps, but we don’t get obsessed with it.</p>
+<p>We also know a lot about the <strong>data science and data engineering</strong> tool kit, and are very experienced at building a pipeline to turn your machine learning Jupyter notebooks into something with a web UI that people can actually use.</p>
 
 <h2 id="where-we-are">Where we are</h2>
 
-<p>We are based on Romney Marsh. It’s sometimes called the fifth continent, a name from a time when geographers divided the world into four continents. Its a a place that feels apart from the world, a world of its own in fact.</p>
+<p>We are based on Romney Marsh, at the south eastern edge of England. It’s sometimes called the fifth continent, a name from a time when geographers divided the world into four continents. Its a a place that still feels apart from the world.</p>
+
+<p>We are as close to Lille as we are to London and have worked on projects across Europe.</p>
 
 <p>Get in touch at <a href="hello@fifthcontinent.io">hello@fifthcontinent.io</a></p>
 
 
-    </article>
+        </article>
+        <script type="text/javascript">
+            function toggleMenu() {
+                var menu = document.getElementsByTagName("nav")[0];
+                console.log(menu.style.display);
+                console.log(menu);
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
+            }
+            var burger = document.getElementById('burger');
+            burger.onclick = function () {
+                toggleMenu();
+            };
+            var cross = document.getElementById('cross');
+            cross.onclick = function () {
+                toggleMenu();
+            };
+        </script>
+    </div>
 </body>
 
 </html>

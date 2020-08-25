@@ -3,27 +3,30 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Writing about other things</title>
+    <title>5th Continent articles and posts</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" type="image/png" href="/assets/img/icon.png" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 
     <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
     <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Writing about other things</title>
+<title>5th Continent articles and posts</title>
 <meta name="generator" content="Jekyll v4.1.0" />
-<meta property="og:title" content="Writing about other things" />
+<meta property="og:title" content="5th Continent articles and posts" />
 <meta property="og:locale" content="en_US" />
+<meta name="description" content="How To Run A Website On A Tiny Server This website (fifthcontinent.io) is running on a tiny web server, a RaspberyPi Zero. This article explains how we set it up." />
+<meta property="og:description" content="How To Run A Website On A Tiny Server This website (fifthcontinent.io) is running on a tiny web server, a RaspberyPi Zero. This article explains how we set it up." />
 <link rel="canonical" href="http://localhost:4000/articles.html" />
 <meta property="og:url" content="http://localhost:4000/articles.html" />
 <script type="application/ld+json">
-{"headline":"Writing about other things","@type":"WebPage","url":"http://localhost:4000/articles.html","@context":"https://schema.org"}</script>
+{"headline":"5th Continent articles and posts","description":"How To Run A Website On A Tiny Server This website (fifthcontinent.io) is running on a tiny web server, a RaspberyPi Zero. This article explains how we set it up.","@type":"WebPage","url":"http://localhost:4000/articles.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
 
 <body>
-    <!--
+    <div class="wrapper">
+        <!--
     _______ ______  __       ______            __  _                  __ 
    / ____(_) __/ /_/ /_     / ____/___  ____  / /_(_)___  ___  ____  / /_
   / /_  / / /_/ __/ __ \   / /   / __ \/ __ \/ __/ / __ \/ _ \/ __ \/ __/
@@ -32,7 +35,7 @@
 
 -->
 <header>
-    <h1>Fifth Continent</h1>
+    <h1>5th Continent</h1>
     <nav>
         <ul>
             
@@ -51,15 +54,42 @@
         </ul>
     </nav>
 </header>
-    
-    <article>
+
+<hr />
         
+        <article>
+            
+<h2 id="how-to-run-a-website-on-a-tiny-server"><a href="/2020/06/22/how-to-run-a-website-on-a-tiny-server.html">How To Run A Website On A Tiny Server</a></h2>
+<p>This website (fifthcontinent.io) is running on a tiny web server, a RaspberyPi Zero. This article explains how we set it up.</p>
 
-      <a href="/2020/06/22/how-to-run-a-website-on-a-tiny-server.html">How To Run A Website On A Tiny Server</a>
-      <p>This website (fifthcontinent.io) is running on a tiny web server, a raspberyPi Nano.</p>
+<figure class="image">
+    <img src="/assets/img/pi.jpg" alt="A tiny web server" />
+    <figcaption>A tiny web server</figcaption>
+</figure>
 
-  
-    </article>
+
+        </article>
+        <script type="text/javascript">
+            function toggleMenu() {
+                var menu = document.getElementsByTagName("nav")[0];
+                console.log(menu.style.display);
+                console.log(menu);
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
+            }
+            var burger = document.getElementById('burger');
+            burger.onclick = function () {
+                toggleMenu();
+            };
+            var cross = document.getElementById('cross');
+            cross.onclick = function () {
+                toggleMenu();
+            };
+        </script>
+    </div>
 </body>
 
 </html>

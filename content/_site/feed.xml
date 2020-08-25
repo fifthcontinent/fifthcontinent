@@ -1,12 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-06-27T19:45:31+01:00</updated><id>/feed.xml</id><entry><title type="html">How To Run A Website On A Tiny Server</title><link href="/2020/06/22/how-to-run-a-website-on-a-tiny-server.html" rel="alternate" type="text/html" title="How To Run A Website On A Tiny Server" /><published>2020-06-22T00:00:00+01:00</published><updated>2020-06-22T00:00:00+01:00</updated><id>/2020/06/22/how-to-run-a-website-on-a-tiny-server</id><content type="html" xml:base="/2020/06/22/how-to-run-a-website-on-a-tiny-server.html">&lt;h1 id=&quot;how-to-build-a-website-and-run-it-on-a-tiny-server&quot;&gt;How to build a website and run it on a tiny server&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-08-25T13:25:24+01:00</updated><id>/feed.xml</id><entry><title type="html">How To Run A Website On A Tiny Server</title><link href="/2020/06/22/how-to-run-a-website-on-a-tiny-server.html" rel="alternate" type="text/html" title="How To Run A Website On A Tiny Server" /><published>2020-06-22T00:00:00+01:00</published><updated>2020-06-22T00:00:00+01:00</updated><id>/2020/06/22/how-to-run-a-website-on-a-tiny-server</id><content type="html" xml:base="/2020/06/22/how-to-run-a-website-on-a-tiny-server.html">&lt;p&gt;This website (fifthcontinent.io) is running on a tiny web server, a &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-zero/&quot;&gt;RaspberyPi Zero&lt;/a&gt;. It looks like this:&lt;/p&gt;
 
-&lt;h2 id=&quot;setting-up-raspberry-pi&quot;&gt;Setting up raspberry pi&lt;/h2&gt;
+&lt;figure class=&quot;image&quot;&gt;
+    &lt;img src=&quot;/assets/img/pi.jpg&quot; alt=&quot;A tiny web server&quot; /&gt;
+    &lt;figcaption&gt;A tiny web server&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;It’s an unusual choice, what with space on netlify or AWS being super cheap and generally easy to use, but there’s a joy to running your own server that sits on your windowsill. The limitations of it are a good thing too, they make you think hard about what you really need to add.&lt;/p&gt;
+
+&lt;p&gt;Here’s how we set it up.&lt;/p&gt;
+
+&lt;h3 id=&quot;set-up-your-raspberry-pi&quot;&gt;Set up your raspberry PI&lt;/h3&gt;
+
+&lt;p&gt;First step is to get an operating system onto the rapsberry Pi’s SD card. &lt;a href=&quot;https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2&quot;&gt;Raspberry Pi Imager&lt;/a&gt; is the easiest way, you just need a computer with an SSD card reader. There are a few versions of the Raspbian OS available, Raspberry Pi OS (32-bit) Lite is  a good choice for a web server.&lt;/p&gt;
+
+&lt;p&gt;Whilst you have your SD card plugged into your laptop, you can get it ready to join your network.&lt;/p&gt;
+
+&lt;p&gt;Create an empty file called “ssh” in the root folder on the SD card. That will enable SSH when you first boot the RapsberyryPi.&lt;/p&gt;
+
+&lt;p&gt;Next, create a file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wpa_supplicant.conf&lt;/code&gt;, and add your wifi network details:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#wpa_supplicant.conf&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;gb
+&lt;span class=&quot;nv&quot;&gt;update_config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;span class=&quot;nv&quot;&gt;ctrl_interface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/run/wpa_supplicant
+
+&lt;span class=&quot;nv&quot;&gt;network&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;={&lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;scan_ssid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+ &lt;span class=&quot;nv&quot;&gt;ssid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;networkSSID&quot;&lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;psk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password123&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Changing the network name, password and country code as necessary.&lt;/p&gt;
+
+&lt;h3 id=&quot;ssh-in&quot;&gt;SSH in&lt;/h3&gt;
+
+&lt;p&gt;You should be ready to go now, so plug the sd card in the Pi and switch it on. All being well, your raspberry pi will boot raspbian, open ssh connections and connect to your wifi network.&lt;/p&gt;
+
+&lt;p&gt;Next, find your raspberry pi’s ip address. Quite likely your router has an interface where you can find out which ip address has been allocated, or you can use nmap.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nmap -sP 10.0.1.0/24
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;replacing 10.0.1.0/24 with your network range. You’ll see something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Nmap scan report for 10.0.1.123
+Host is up (0.32s latency).
+MAC Address: AB:CD:EF:GH:12:34 (Raspberry Pi Foundation
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;That’s your address, so you can ssh in:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh pi@10.0.1.123
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The default password is “raspberry”&lt;/p&gt;
+
+&lt;p&gt;### Setting things up&lt;/p&gt;
+
+&lt;p&gt;Change the password&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# on the server&lt;/span&gt;
+passwd
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&amp;lt;whatever&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;and copy over your key.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# locally&lt;/span&gt;
+ssh-copy-id  pi@&amp;lt;ip address&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can ssh in now, and tighten up the ssh config a little, turning off password logins and changing the port number to put off the most basic attacks. I’m using this config&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Protocol 2
+Port 1234
+PermitRootLogin prohibit-password
+MaxAuthTries 6
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM &lt;span class=&quot;nb&quot;&gt;yes
+&lt;/span&gt;X11Forwarding no
+PrintMotd no
+AcceptEnv LANG LC_&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+Subsystem	sftp	/usr/lib/openssh/sftp-server
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Change the port number to your chosen one.&lt;/p&gt;
+
+&lt;h3 id=&quot;install-a-web-server&quot;&gt;Install a web server&lt;/h3&gt;
+
+&lt;p&gt;Nginx is a good choice, and we’ll add a package to set up https with Letsencrpyt&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nginx python-certbot-nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you visit your server’s ip address now, you should see the nginx default page.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# myserver.conf
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /home/myserver/html/;
+
+	index index.html;
+
+	server_name myserver.com www.myserver.com;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;open-up-to-the-world&quot;&gt;Open up to the world&lt;/h3&gt;
+
+&lt;p&gt;This bit changes depending on your router and ISP so it’s hard to give instructions, but the general idea is to find the setting on your router that directs all incoming requests to an IP address on your network, it’s often called a DMZ. The next step is to add an A record to your domain name to point to your public IP address. If your ISP doesn’t provide a fixed IP, you’ll have to do a bit more work to set up dynamic DNS, there are a bunch of services around that provide this.&lt;/p&gt;
+
+&lt;p&gt;When that’s in place, you can set up https certificates with the Letsencrypt bot:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;certbot &lt;span class=&quot;nt&quot;&gt;--nginx&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--non-interactive&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--agree-tos&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; me@mydomain.com &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; mydomain.com &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; www.mydomain.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;other-things&quot;&gt;Other things&lt;/h3&gt;
+
+&lt;p&gt;You should configure a firewall on your little server, and maybe run fail2ban as well or something similar, alogn with lots of other refinements, but this will get you started.&lt;/p&gt;
+
+&lt;p&gt;You can see our repo for this site at &amp;lt;&amp;gt;, which has some ideas for automating set up and deployment with a makeful.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Install OS - flashing onto a memory stick&lt;/li&gt;
-  &lt;li&gt;Get it on WiFi&lt;/li&gt;
-  &lt;li&gt;SSH in&lt;/li&gt;
-  &lt;li&gt;Copy private key&lt;/li&gt;
-  &lt;li&gt;Configure firewall - ufw&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">How to build a website and run it on a tiny server</summary></entry></feed>
+  &lt;li&gt;https://www.raspberrypi.org/products/raspberry-pi-zero/&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">This website (fifthcontinent.io) is running on a tiny web server, a RaspberyPi Zero. It looks like this:</summary></entry></feed>

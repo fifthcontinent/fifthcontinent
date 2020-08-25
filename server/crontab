@@ -1,2 +1,1 @@
-*/15 * * * * python3 /home/pi/fifthcontinent/sampler.py
 0 12 * * * /usr/bin/certbot renew --quiet

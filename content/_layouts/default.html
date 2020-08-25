@@ -13,11 +13,33 @@
 </head>
 
 <body>
-    {% include logo.html %}
-    {% include navigation.html %}
-    <article>
-        {{ content }}
-    </article>
+    <div class="wrapper">
+        {% include logo.html %}
+        {% include navigation.html %}
+        <article>
+            {{ content }}
+        </article>
+        <script type="text/javascript">
+            function toggleMenu() {
+                var menu = document.getElementsByTagName("nav")[0];
+                console.log(menu.style.display);
+                console.log(menu);
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
+            }
+            var burger = document.getElementById('burger');
+            burger.onclick = function () {
+                toggleMenu();
+            };
+            var cross = document.getElementById('cross');
+            cross.onclick = function () {
+                toggleMenu();
+            };
+        </script>
+    </div>
 </body>
 
 </html>

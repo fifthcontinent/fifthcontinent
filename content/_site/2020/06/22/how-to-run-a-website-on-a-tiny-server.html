@@ -14,67 +14,218 @@
 <meta name="generator" content="Jekyll v4.1.0" />
 <meta property="og:title" content="How To Run A Website On A Tiny Server" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="How to build a website and run it on a tiny server" />
-<meta property="og:description" content="How to build a website and run it on a tiny server" />
+<meta name="description" content="This website (fifthcontinent.io) is running on a tiny web server, a RaspberyPi Zero. It looks like this:" />
+<meta property="og:description" content="This website (fifthcontinent.io) is running on a tiny web server, a RaspberyPi Zero. It looks like this:" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-06-22T00:00:00+01:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"/2020/06/22/how-to-run-a-website-on-a-tiny-server.html"},"description":"How to build a website and run it on a tiny server","headline":"How To Run A Website On A Tiny Server","dateModified":"2020-06-22T00:00:00+01:00","datePublished":"2020-06-22T00:00:00+01:00","url":"/2020/06/22/how-to-run-a-website-on-a-tiny-server.html","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"/2020/06/22/how-to-run-a-website-on-a-tiny-server.html"},"description":"This website (fifthcontinent.io) is running on a tiny web server, a RaspberyPi Zero. It looks like this:","headline":"How To Run A Website On A Tiny Server","dateModified":"2020-06-22T00:00:00+01:00","datePublished":"2020-06-22T00:00:00+01:00","url":"/2020/06/22/how-to-run-a-website-on-a-tiny-server.html","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
 
 <body>
-    <!-- <figure role="img" aria-labelledby="logo-caption" id="logo">
-    <pre>
+    <div class="wrapper">
+        <!--
     _______ ______  __       ______            __  _                  __ 
    / ____(_) __/ /_/ /_     / ____/___  ____  / /_(_)___  ___  ____  / /_
   / /_  / / /_/ __/ __ \   / /   / __ \/ __ \/ __/ / __ \/ _ \/ __ \/ __/
  / __/ / / __/ /_/ / / /  / /___/ /_/ / / / / /_/ / / / /  __/ / / / /_  
 /_/   /_/_/  \__/_/ /_/   \____/\____/_/ /_/\__/_/_/ /_/\___/_/ /_/\__/  
-    </pre>
-    <figcaption id="logo-caption" hidden="true" aria-hidden="false">
-        <h1>Fifth Continent Limited</h1>
-    </figcaption>
-</figure> -->
+
+-->
 <header>
-    <h1>Fifth Continent</h1>
-    <nav>
-        <ul>
-            
-            <li>
-                <a href="/" >
-                    About
-                </a>
-            </li>
-            
-            <li>
-                <a href="/what-technology-we-use.html" >
-                    Blog
-                </a>
-            </li>
-            
-        </ul>
-    </nav>
+    <h1>5th Continent</h1>
+    <!-- <nav>
+            <ul>
+                
+                <li>
+                    <a href="/" >
+                        About
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/articles.html" >
+                        Articles
+                    </a>
+                </li>
+                
+            </ul>
+        </nav> -->
 </header>
-    
-    <article>
-        <p>2020-06-22 00:00:00 +0100 - Written by </p>
 
-<h1 id="how-to-build-a-website-and-run-it-on-a-tiny-server">How to build a website and run it on a tiny server</h1>
+<hr />
+        
+        <article>
+            <h2>
+    How To Run A Website On A Tiny Server
+</h2>
+2020-06-22 00:00:00 +0100 - Written by </p>
 
-<h2 id="setting-up-raspberry-pi">Setting up raspberry pi</h2>
+<p>This website (fifthcontinent.io) is running on a tiny web server, a <a href="https://www.raspberrypi.org/products/raspberry-pi-zero/">RaspberyPi Zero</a>. It looks like this:</p>
+
+<figure class="image">
+    <img src="/assets/img/pi.jpg" alt="A tiny web server" />
+    <figcaption>A tiny web server</figcaption>
+</figure>
+
+<p>It’s an unusual choice, what with space on netlify or AWS being super cheap and generally easy to use, but there’s a joy to running your own server that sits on your windowsill. The limitations of it are a good thing too, they make you think hard about what you really need to add.</p>
+
+<p>Here’s how we set it up.</p>
+
+<h3 id="set-up-your-raspberry-pi">Set up your raspberry PI</h3>
+
+<p>First step is to get an operating system onto the rapsberry Pi’s SD card. <a href="https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/2">Raspberry Pi Imager</a> is the easiest way, you just need a computer with an SSD card reader. There are a few versions of the Raspbian OS available, Raspberry Pi OS (32-bit) Lite is  a good choice for a web server.</p>
+
+<p>Whilst you have your SD card plugged into your laptop, you can get it ready to join your network.</p>
+
+<p>Create an empty file called “ssh” in the root folder on the SD card. That will enable SSH when you first boot the RapsberyryPi.</p>
+
+<p>Next, create a file <code class="language-plaintext highlighter-rouge">wpa_supplicant.conf</code>, and add your wifi network details:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#wpa_supplicant.conf</span>
+<span class="nv">country</span><span class="o">=</span>gb
+<span class="nv">update_config</span><span class="o">=</span>1
+<span class="nv">ctrl_interface</span><span class="o">=</span>/var/run/wpa_supplicant
+
+<span class="nv">network</span><span class="o">={</span>
+ <span class="nv">scan_ssid</span><span class="o">=</span>1
+ <span class="nv">ssid</span><span class="o">=</span><span class="s2">"networkSSID"</span>
+ <span class="nv">psk</span><span class="o">=</span><span class="s2">"password123"</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>Changing the network name, password and country code as necessary.</p>
+
+<h3 id="ssh-in">SSH in</h3>
+
+<p>You should be ready to go now, so plug the sd card in the Pi and switch it on. All being well, your raspberry pi will boot raspbian, open ssh connections and connect to your wifi network.</p>
+
+<p>Next, find your raspberry pi’s ip address. Quite likely your router has an interface where you can find out which ip address has been allocated, or you can use nmap.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nmap -sP 10.0.1.0/24
+</code></pre></div></div>
+
+<p>replacing 10.0.1.0/24 with your network range. You’ll see something like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nmap scan report for 10.0.1.123
+Host is up (0.32s latency).
+MAC Address: AB:CD:EF:GH:12:34 (Raspberry Pi Foundation
+</code></pre></div></div>
+<p>That’s your address, so you can ssh in:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh pi@10.0.1.123
+</code></pre></div></div>
+
+<p>The default password is “raspberry”</p>
+
+<p>### Setting things up</p>
+
+<p>Change the password</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># on the server</span>
+passwd
+<span class="o">&gt;</span>&lt;whatever&gt;
+</code></pre></div></div>
+
+<p>and copy over your key.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># locally</span>
+ssh-copy-id  pi@&lt;ip address&gt;
+</code></pre></div></div>
+
+<p>You can ssh in now, and tighten up the ssh config a little, turning off password logins and changing the port number to put off the most basic attacks. I’m using this config</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Protocol 2
+Port 1234
+PermitRootLogin prohibit-password
+MaxAuthTries 6
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM <span class="nb">yes
+</span>X11Forwarding no
+PrintMotd no
+AcceptEnv LANG LC_<span class="k">*</span>
+Subsystem	sftp	/usr/lib/openssh/sftp-server
+
+</code></pre></div></div>
+<p>Change the port number to your chosen one.</p>
+
+<h3 id="install-a-web-server">Install a web server</h3>
+
+<p>Nginx is a good choice, and we’ll add a package to set up https with Letsencrpyt</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>nginx python-certbot-nginx
+</code></pre></div></div>
+
+<p>If you visit your server’s ip address now, you should see the nginx default page.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># myserver.conf
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /home/myserver/html/;
+
+	index index.html;
+
+	server_name myserver.com www.myserver.com;
+
+	location / {
+		# First attempt to serve request as file, then
+		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+}
+</code></pre></div></div>
+
+<h3 id="open-up-to-the-world">Open up to the world</h3>
+
+<p>This bit changes depending on your router and ISP so it’s hard to give instructions, but the general idea is to find the setting on your router that directs all incoming requests to an IP address on your network, it’s often called a DMZ. The next step is to add an A record to your domain name to point to your public IP address. If your ISP doesn’t provide a fixed IP, you’ll have to do a bit more work to set up dynamic DNS, there are a bunch of services around that provide this.</p>
+
+<p>When that’s in place, you can set up https certificates with the Letsencrypt bot:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>certbot <span class="nt">--nginx</span> <span class="nt">--non-interactive</span> <span class="nt">--agree-tos</span> <span class="nt">-m</span> me@mydomain.com <span class="nt">-d</span> mydomain.com <span class="nt">-d</span> www.mydomain.com
+</code></pre></div></div>
+
+<h3 id="other-things">Other things</h3>
+
+<p>You should configure a firewall on your little server, and maybe run fail2ban as well or something similar, alogn with lots of other refinements, but this will get you started.</p>
+
+<p>You can see our repo for this site at &lt;&gt;, which has some ideas for automating set up and deployment with a makeful.</p>
+
+<h2 id="references">References</h2>
 
 <ul>
-  <li>Install OS - flashing onto a memory stick</li>
-  <li>Get it on WiFi</li>
-  <li>SSH in</li>
-  <li>Copy private key</li>
-  <li>Configure firewall - ufw</li>
-  <li></li>
+  <li>https://www.raspberrypi.org/products/raspberry-pi-zero/</li>
 </ul>
 
-    </article>
+        </article>
+        <script type="text/javascript">
+            function toggleMenu() {
+                var menu = document.getElementsByTagName("nav")[0];
+                console.log(menu.style.display);
+                console.log(menu);
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
+            }
+            var burger = document.getElementById('burger');
+            burger.onclick = function () {
+                toggleMenu();
+            };
+            var cross = document.getElementById('cross');
+            cross.onclick = function () {
+                toggleMenu();
+            };
+        </script>
+    </div>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Fifth Continent - Web and data science product development and consultancy
+description:  Fifth Continent are a web development agency. We help people turn their ideas into easy to use, thoughtful products, and we find the simplest way to do it. 
 ---
 
 ## About us
@@ -22,14 +23,14 @@ Everything we code will have excellent test coverage, and will use continuous in
 
 Deploying your project will be a breeze, git push and it’s done. On the front end we will use whatever framework is appropriate - this site uses Jekyll, which is just the ticket here, but more usually it would be react or something similar.
 
-We also know a lot about the **data science and data engineering** tool kit, and are very experienced at building a pipeline to turn your machine learning Jupiter notebooks into something with a web UI that people can actually use.
-
-We do agile because it helps, but we don’t get obsessed with it.
+We also know a lot about the **data science and data engineering** tool kit, and are very experienced at building a pipeline to turn your machine learning Jupyter notebooks into something with a web UI that people can actually use.
 
 
 ## Where we are
 
-We are based on Romney Marsh. It’s sometimes called the fifth continent, a name from a time when geographers divided the world into four continents. Its a a place that feels apart from the world, a world of its own in fact.
+We are based on Romney Marsh, at the south eastern edge of England. It’s sometimes called the fifth continent, a name from a time when geographers divided the world into four continents. Its a a place that still feels apart from the world. 
+
+We are as close to Lille as we are to London and have worked on projects across Europe. 
 
 Get in touch at [hello@fifthcontinent.io](hello@fifthcontinent.io)
 

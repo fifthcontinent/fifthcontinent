@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
-<p>{{page.title}}{{ page.date }} - Written by {{ page.author }}</p>
+<h2>
+    {{page.title}}
+</h2>
+<h3 class="date">{{ page.date | date: "%Y-%m-%d"}}</h3>
+<!--  Written by {{ page.author }}</p> -->
 
 {{ content }}

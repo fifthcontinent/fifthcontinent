@@ -25,7 +25,8 @@
 </head>
 
 <body>
-    <!--
+    <div class="wrapper">
+        <!--
     _______ ______  __       ______            __  _                  __ 
    / ____(_) __/ /_/ /_     / ____/___  ____  / /_(_)___  ___  ____  / /_
   / /_  / / /_/ __/ __ \   / /   / __ \/ __ \/ __/ / __ \/ _ \/ __ \/ __/
@@ -34,7 +35,7 @@
 
 -->
 <header>
-    <h1>Fifth Continent</h1>
+    <h1>5th Continent</h1>
     <nav>
         <ul>
             
@@ -53,9 +54,11 @@
         </ul>
     </nav>
 </header>
-    
-    <article>
-        <h1 id="a-tiny-web-server">A tiny web server</h1>
+
+<hr />
+        
+        <article>
+            <h1 id="a-tiny-web-server">A tiny web server</h1>
 
 <ul>
   
@@ -73,7 +76,28 @@
 
 <p>To make sure</p>
 
-    </article>
+        </article>
+        <script type="text/javascript">
+            function toggleMenu() {
+                var menu = document.getElementsByTagName("nav")[0];
+                console.log(menu.style.display);
+                console.log(menu);
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
+            }
+            var burger = document.getElementById('burger');
+            burger.onclick = function () {
+                toggleMenu();
+            };
+            var cross = document.getElementById('cross');
+            cross.onclick = function () {
+                toggleMenu();
+            };
+        </script>
+    </div>
 </body>
 
 </html>
