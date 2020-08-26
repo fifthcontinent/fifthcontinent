@@ -38,17 +38,17 @@ article { margin-top: 7em; }
 
 article p { font-size: 1.5em; line-height: 1.5em; margin-bottom: 1em; }
 
+a.menu { display: block; position: absolute; right: 7px; top: 7px; }
+
 nav + article { margin-top: 5em; }
 
-nav { background-color: rgba(255, 255, 255, 0.9); }
+nav { position: fixed; top: 0px; height: 100%; min-width: 20em; background-color: rgba(255, 255, 255, 0.9); right: 0px; }
 
-nav ul { display: flex; list-style: none; margin-top: 1.7em; }
+nav ul { margin-inline-start: 0; padding: 0; margin-left: 1em; }
 
-nav ul li { display: block; width: 7em; font-size: 2em; }
+nav ul li { display: block; height: 2em; font-size: 2em; }
 
-nav a { text-decoration: none; }
-
-@media (min-width: 850px) { header { flex-direction: row; } }
+@media (min-width: 850px) { a.menu { display: none; } nav { display: block; } }
 
 .highlight .hll { background-color: #ffffcc; }
 
