@@ -1,0 +1,1 @@
+Protocol 2 Port 385 PermitRootLogin prohibit-password MaxAuthTries 6 PasswordAuthentication no PermitEmptyPasswords no ChallengeResponseAuthentication no UsePAM yes X11Forwarding no PrintMotd no AcceptEnv LANG LC_* Subsystem sftp /usr/lib/openssh/sftp-server AllowUsers user@192.168.50.67
