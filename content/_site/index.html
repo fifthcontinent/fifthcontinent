@@ -23,58 +23,40 @@
 </head>
 
 <body>
-    <!-- <figure role="img" aria-labelledby="logo-caption" id="logo">
-    <pre>
+    <div class="wrapper">
+        <!--
     _______ ______  __       ______            __  _                  __ 
    / ____(_) __/ /_/ /_     / ____/___  ____  / /_(_)___  ___  ____  / /_
   / /_  / / /_/ __/ __ \   / /   / __ \/ __ \/ __/ / __ \/ _ \/ __ \/ __/
  / __/ / / __/ /_/ / / /  / /___/ /_/ / / / / /_/ / / / /  __/ / / / /_  
 /_/   /_/_/  \__/_/ /_/   \____/\____/_/ /_/\__/_/_/ /_/\___/_/ /_/\__/  
-    </pre>
-    <figcaption id="logo-caption" hidden="true" aria-hidden="false">
-        <h1>Fifth Continent Limited</h1>
-    </figcaption>
-</figure> -->
-<header>
-    <h1>Fifth Continent</h1>
 
-    <a href='#' class="menu" id="burger">
-        <svg viewBox="0 0 100 80" width="25" height="25">
-            <rect width="100" height="10"></rect>
-            <rect y="30" width="100" height="10"></rect>
-            <rect y="60" width="100" height="10"></rect>
-        </svg></a>
+-->
+<header>
+    <h1>5th Continent</h1>
+    <!-- <nav>
+            <ul>
+                
+                <li>
+                    <a href="/" class="current" >
+                        About
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/articles.html" >
+                        Articles
+                    </a>
+                </li>
+                
+            </ul>
+        </nav> -->
 </header>
-    <nav>
-    <ul>
+
+<hr />
         
-        <li>
-            <a href="/" class="current" >
-                Who we are
-            </a>
-        </li>
-        
-        <li>
-            <a href="/what-technology-we-use.html" >
-                What we use
-            </a>
-        </li>
-        
-        <li>
-            <a href="/where-are-fifth-continent-limited.html" >
-                Where we are
-            </a>
-        </li>
-        
-    </ul>
-    <a href='#' class="menu" id="cross">
-        <svg viewBox="0 0 100 80" width="25" height="25">
-            <line x1="0" y1="0" x2="100" y2="80" stroke-width=10 stroke="black" />
-            <line x1="0" y1="80" x2="100" y2="0" stroke-width=10 stroke="black" />
-        </svg></a>
-</nav>
-    <article>
-        <h2 id="about-us">About us</h2>
+        <article>
+            <h2 id="about-us">About us</h2>
 
 <p>Fifth Continent are a web development agency. We help people turn their ideas into easy to use, thoughtful products, and we find the simplest way to do it. Our expertise is in the nuts and bolts, the backend processes and infrastructure that power digital products.</p>
 
@@ -82,30 +64,49 @@
 
 <p>We are small, but work with some of the largest companies. We are well practised at working remotely, so we can work with you wherever you are.</p>
 
+<h2 id="what-we-use-to-build-our-projects">What we use to build our projects</h2>
+
+<p>We use <strong>python</strong> in pretty much all of our projects. We’re very good at python.</p>
+
+<p>We often use a <strong>serverless</strong> approach, and use the serverless framework for infrastructure and deployment, and Terraform for other infrastructure.</p>
+
+<p>Everything we code will have excellent test coverage, and will use continuous integration. <strong>Test driven development</strong> is our thing.</p>
+
+<p>Deploying your project will be a breeze, git push and it’s done. On the front end we will use whatever framework is appropriate - this site uses Jekyll, which is just the ticket here, but more usually it would be react or something similar.</p>
+
+<p>We also know a lot about the <strong>data science and data engineering</strong> tool kit, and are very experienced at building a pipeline to turn your machine learning Jupyter notebooks into something with a web UI that people can actually use.</p>
+
+<h2 id="where-we-are">Where we are</h2>
+
+<p>We are based on Romney Marsh. It’s sometimes called the fifth continent, a name from a time when geographers divided the world into four continents. Its a a place that still feels apart from the world.</p>
+
+<p>We are as close to Lille as we are to London and have worked on projects across Europe.</p>
+
 <p>Get in touch at <a href="hello@fifthcontinent.io">hello@fifthcontinent.io</a></p>
 
 
-    </article>
-    <script type="text/javascript">
-        function toggleMenu() {
-            var menu = document.getElementsByTagName("nav")[0];
-            console.log(menu.style.display);
-            console.log(menu);
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
+        </article>
+        <script type="text/javascript">
+            function toggleMenu() {
+                var menu = document.getElementsByTagName("nav")[0];
+                console.log(menu.style.display);
+                console.log(menu);
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
             }
-        }
-        var burger = document.getElementById('burger');
-        burger.onclick = function () {
-            toggleMenu();
-        };
-        var cross = document.getElementById('cross');
-        cross.onclick = function () {
-            toggleMenu();
-        };
-    </script>
+            var burger = document.getElementById('burger');
+            burger.onclick = function () {
+                toggleMenu();
+            };
+            var cross = document.getElementById('cross');
+            cross.onclick = function () {
+                toggleMenu();
+            };
+        </script>
+    </div>
 </body>
 
 </html>

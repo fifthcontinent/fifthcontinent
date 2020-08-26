@@ -1,3 +1,12 @@
+## Setup
+
+Provide a file .env with your local ip address and chosen ssh port, eg.
+
+```bash
+IP_ADDRESS=10.0.1.18
+PORT=22
+```
+
 ## Development server
 
 ```
