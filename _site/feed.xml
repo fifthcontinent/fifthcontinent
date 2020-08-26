@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-26T07:23:21+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">How To Run A Website On A Tiny Server</title><link href="http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server.html" rel="alternate" type="text/html" title="How To Run A Website On A Tiny Server" /><published>2020-06-22T00:00:00+01:00</published><updated>2020-06-22T00:00:00+01:00</updated><id>http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server</id><content type="html" xml:base="http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server.html">&lt;p&gt;This website (fifthcontinent.io) is running on a tiny web server, a &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-zero/&quot;&gt;RaspberyPi Zero&lt;/a&gt;. It looks like this:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-26T12:49:26+01:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">How To Run A Website On A Tiny Server</title><link href="http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server.html" rel="alternate" type="text/html" title="How To Run A Website On A Tiny Server" /><published>2020-06-22T00:00:00+01:00</published><updated>2020-06-22T00:00:00+01:00</updated><id>http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server</id><content type="html" xml:base="http://localhost:4000/2020/06/22/how-to-run-a-website-on-a-tiny-server.html">&lt;p&gt;This website (fifthcontinent.io) is running on a tiny web server, a &lt;a href=&quot;https://www.raspberrypi.org/products/raspberry-pi-zero/&quot;&gt;RaspberyPi Zero&lt;/a&gt;. It looks like this:&lt;/p&gt;
 
 &lt;figure class=&quot;image&quot;&gt;
     &lt;img src=&quot;/assets/img/pi.jpg&quot; alt=&quot;A tiny web server&quot; /&gt;
@@ -17,7 +17,7 @@
 
 &lt;p&gt;Create an empty file called “ssh” in the root folder on the SD card. That will enable SSH when you first boot the RapsberyryPi.&lt;/p&gt;
 
-&lt;p&gt;Next, create a file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wpa_supplicant.conf&lt;/code&gt;, and add your wifi network details:&lt;/p&gt;
+&lt;p&gt;Next, create a file wpa_supplicant.conf, and add your wifi network details:&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#wpa_supplicant.conf&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;gb
@@ -124,7 +124,8 @@ server {
 
 &lt;p&gt;When that’s in place, you can set up https certificates with the Letsencrypt bot:&lt;/p&gt;
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;certbot &lt;span class=&quot;nt&quot;&gt;--nginx&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--non-interactive&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--agree-tos&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; me@mydomain.com &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; mydomain.com &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; www.mydomain.com
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;certbot &lt;span class=&quot;nt&quot;&gt;--nginx&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--non-interactive&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--agree-tos&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; me@mydomain.com &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; mydomain.com &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; www.mydomain.com
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;other-things&quot;&gt;Other things&lt;/h3&gt;

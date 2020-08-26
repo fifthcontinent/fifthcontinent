@@ -6,8 +6,8 @@
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" type="image/png" href="/assets/img/icon.png" />
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-
+    <!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     {% feed_meta %}
     {% seo %}
 </head>
@@ -22,8 +22,6 @@
         <script type="text/javascript">
             function toggleMenu() {
                 var menu = document.getElementsByTagName("nav")[0];
-                console.log(menu.style.display);
-                console.log(menu);
                 if (menu.style.display === "block") {
                     menu.style.display = "none";
                 } else {

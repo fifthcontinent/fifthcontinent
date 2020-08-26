@@ -6,8 +6,8 @@
     <title>How To Run A Website On A Tiny Server</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="icon" type="image/png" href="/assets/img/icon.png" />
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-
+    <!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" />
     <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>How To Run A Website On A Tiny Server</title>
@@ -38,9 +38,14 @@
 
 -->
 <header>
-    <h1>5th Continent</h1>
+    <h1><a href="/">5th Continent</a></h1>
 </header>
-
+<a href='#' class="menu" id="burger">
+    <svg viewBox="0 0 100 80" width="25" height="25">
+        <rect width="100" height="10"></rect>
+        <rect y="30" width="100" height="10"></rect>
+        <rect y="60" width="100" height="10"></rect>
+    </svg></a>
 <hr />
         <nav>
     <ul>
@@ -90,7 +95,7 @@
 
 <p>Create an empty file called “ssh” in the root folder on the SD card. That will enable SSH when you first boot the RapsberyryPi.</p>
 
-<p>Next, create a file <code class="language-plaintext highlighter-rouge">wpa_supplicant.conf</code>, and add your wifi network details:</p>
+<p>Next, create a file wpa_supplicant.conf, and add your wifi network details:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#wpa_supplicant.conf</span>
 <span class="nv">country</span><span class="o">=</span>gb
@@ -197,7 +202,8 @@ server {
 
 <p>When that’s in place, you can set up https certificates with the Letsencrypt bot:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>certbot <span class="nt">--nginx</span> <span class="nt">--non-interactive</span> <span class="nt">--agree-tos</span> <span class="nt">-m</span> me@mydomain.com <span class="nt">-d</span> mydomain.com <span class="nt">-d</span> www.mydomain.com
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>certbot <span class="nt">--nginx</span> <span class="nt">--non-interactive</span> <span class="nt">--agree-tos</span> <span class="se">\</span>
+	<span class="nt">-m</span> me@mydomain.com <span class="nt">-d</span> mydomain.com <span class="nt">-d</span> www.mydomain.com
 </code></pre></div></div>
 
 <h3 id="other-things">Other things</h3>
@@ -216,8 +222,6 @@ server {
         <script type="text/javascript">
             function toggleMenu() {
                 var menu = document.getElementsByTagName("nav")[0];
-                console.log(menu.style.display);
-                console.log(menu);
                 if (menu.style.display === "block") {
                     menu.style.display = "none";
                 } else {

@@ -22,7 +22,7 @@ Whilst you have your SD card plugged into your laptop, you can get it ready to j
 
 Create an empty file called "ssh" in the root folder on the SD card. That will enable SSH when you first boot the RapsberyryPi. 
 
-Next, create a file `wpa_supplicant.conf`, and add your wifi network details:
+Next, create a file wpa_supplicant.conf, and add your wifi network details:
 
 ```bash
 #wpa_supplicant.conf
@@ -141,7 +141,8 @@ This bit changes depending on your router and ISP so it's hard to give instructi
 When that's in place, you can set up https certificates with the Letsencrypt bot:
 
 ```bash
-sudo certbot --nginx --non-interactive --agree-tos -m me@mydomain.com -d mydomain.com -d www.mydomain.com
+sudo certbot --nginx --non-interactive --agree-tos \
+	-m me@mydomain.com -d mydomain.com -d www.mydomain.com
 ```
 
 
