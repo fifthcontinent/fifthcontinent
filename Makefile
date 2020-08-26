@@ -24,4 +24,4 @@ requirements:
 
 ssh_config:
 	scp  -P ${PORT} server/sshd_config pi@${IP_ADDRESS}:/home/pi/sshd_config
-	ssh  -p ${PORT} pi@${IP_ADDRESS} 'sudo mv /home/pi/sshd_config /etc/ssh/sshd_config && sudo systemctl restart sshd'
+	ssh  -p ${PORT} pi@${IP_ADDRESS} 'sudo PORT=${PORT} envsubst < /home/pi/sshd_config > /etc/ssh/sshd_config && sudo systemctl restart sshd'
