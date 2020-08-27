@@ -1,14 +1,14 @@
 ---
 layout: post
 excerpt: This website (fifthcontinent.io) is running on a tiny web server, a RaspberyPi Zero. This article explains how we set it up.
-image:  /assets/img/pi.jpg
+image:  /assets/img/tiny.jpg
 image_alt: A tiny web server
 ---
 
 
 This website (fifthcontinent.io) is running on a tiny web server, a [RaspberyPi Zero](https://www.raspberrypi.org/products/raspberry-pi-zero/). It looks like this:
 
-{% include image.html url="/assets/img/pi.jpg" description="A tiny web server" %}
+{% include image.html url="/assets/img/tiny.jpg" description="A tiny web server" %}
 
 It's an unusual choice, what with space on netlify or AWS being super cheap and generally easy to use, but there's a joy to running your own server that sits on your windowsill. The limitations of it are a good thing too, they make you think hard about what you really need.
 

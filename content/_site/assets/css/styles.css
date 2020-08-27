@@ -8,9 +8,17 @@ body { background-color: white; font-family: Times, "Times New Roman", sans; }
 
 h1, h2 { font-size: 2em; font-family: "helvetica neue", Helvetica, Arial, sans-serif; }
 
-h2, h3 { font-family: sans-serif; color: red; }
+h1 a { text-decoration: none; color: black; }
+
+h2, h3, h2 a { font-family: sans-serif; color: red; }
+
+h2 a { text-decoration: none; }
 
 h3 { font-size: 1.5em; }
+
+h3.date { color: inherit; font-size: 1em; font-weight: normal; margin-top: 0; }
+
+h3 { margin-top: 2em; }
 
 h1 { text-transform: uppercase; font-weight: normal; }
 
@@ -34,17 +42,21 @@ article { margin-top: 7em; }
 
 article p { font-size: 1.5em; line-height: 1.5em; margin-bottom: 1em; }
 
+a.menu { display: block; position: absolute; right: 7px; top: 7px; }
+
 nav + article { margin-top: 5em; }
 
-nav { background-color: rgba(255, 255, 255, 0.9); }
+nav { display: none; position: fixed; top: 0px; height: 100%; min-width: 20em; background-color: rgba(255, 255, 255, 0.9); right: 0px; }
 
-nav ul { display: flex; list-style: none; margin-top: 1.7em; }
+nav ul { margin-inline-start: 0; padding: 0; margin-left: 1em; }
 
-nav ul li { display: block; width: 7em; font-size: 2em; }
+nav ul li { display: block; height: 2em; font-size: 1.5em; }
 
-nav a { text-decoration: none; }
+.highlighter-rouge { background-color: #EEEEEE; padding: 15px; }
 
-@media (min-width: 850px) { header { flex-direction: row; } }
+pre { overflow-x: auto; white-space: pre-wrap; white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; }
+
+@media (min-width: 1100px) { a.menu { display: none; } nav { top: 132px; left: 0px; display: block; background-color: transparent; min-width: auto; width: 15em; } }
 
 .highlight .hll { background-color: #ffffcc; }
 
