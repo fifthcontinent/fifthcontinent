@@ -9,8 +9,6 @@ setup:
 serverconf:
 	scp -P ${PORT} server/nginx.conf pi@${IP_ADDRESS}:/home/pi/fifthcontinent/
 	ssh -p ${PORT} pi@${IP_ADDRESS} 'sudo /etc/init.d/nginx restart'
-
-certbot:
 	ssh -p ${PORT} pi@${IP_ADDRESS} 'sudo certbot --nginx --non-interactive --agree-tos -m kip@fifthcontinent.io -d fifthcontinent.io -d www.fifthcontinent.io'
 
 deploy:
