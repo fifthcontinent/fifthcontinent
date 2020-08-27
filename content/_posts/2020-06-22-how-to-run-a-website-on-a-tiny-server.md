@@ -150,7 +150,7 @@ sudo certbot --nginx --non-interactive --agree-tos \
 
 You should configure a firewall on your little server, and maybe run fail2ban as well or something similar, along with lots of other refinements, but this will get you started.
 
-You can see our repo for this site at <>, which has some ideas for automating set up and deployment with a make file. 
+You can see our repo for this site at [github](https://github.com/fifthcontinent/fifthcontinent), where you'll find some ideas for automating set up and deployment with a make file. 
 
 
 ## References

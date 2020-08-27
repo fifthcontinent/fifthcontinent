@@ -28,7 +28,7 @@ We also know a lot about the **data science and data engineering** tool kit, and
 
 ## Where we are
 
-We are based on Romney Marsh, at the south eastern edge of England. It’s sometimes called the fifth continent, a name from a time when geographers divided the world into four continents. Its a a place that still feels apart from the world. 
+We are based on Romney Marsh, at the south eastern edge of England. It’s sometimes called the fifth continent, a name from a time when geographers divided the world into four continents. Its a place that still feels apart from the world. 
 
 We are as close to Lille as we are to London and have worked on projects across Europe. 
 
